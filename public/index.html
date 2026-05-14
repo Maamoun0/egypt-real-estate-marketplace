@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إمكان للعقارات الفاخرة | EMKAN Luxury Real Estate Marketplace</title>
+    <meta name="description" content="اكتشف أرقى العقارات الفاخرة للبيع والإيجار في مصر. فلل، شقق، وأراضي فاخرة في القاهرة الجديدة، الشيخ زايد، والساحل الشمالي.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="dark-theme">
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-icon">✨</span>
+                <div class="brand-text">
+                    <span class="brand-title">إمكان</span>
+                    <span class="brand-subtitle">للعقارات الفاخرة</span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <button id="btn-home" class="nav-link active" onclick="resetFilters()">الرئيسية</button>
+                <button id="btn-featured" class="nav-link" onclick="filterFeatured()">المميز</button>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="btn-lang-toggle" class="btn-icon" title="تبديل اللغة / Switch Language" aria-label="Switch Language">
+                    🌐 <span class="lang-text">EN</span>
+                </button>
+                <button id="btn-theme-toggle" class="btn-icon" title="تبديل المظهر / Theme Toggle" aria-label="Toggle Theme">
+                    ☀️
+                </button>
+                <button id="btn-open-add-modal" class="btn-primary">
+                    <span>➕</span> <span class="btn-text">أضف عقارك</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <span class="hero-badge">بوابتك للرقي والاستثمار</span>
+                <h1 id="main-heading" class="hero-title">اكتشف مسكنك الفاخر في <span>أرقى مواقع مصر</span></h1>
+                <p class="hero-description">نقدم لك مجموعة منتقاة بعناية من أفضل الفلل والشقق والأراضي الحصرية لتجربة معيشية استثنائية.</p>
+                
+                <!-- Search & Filter Showcase -->
+                <div class="search-glass-box">
+                    <div class="search-tabs" id="type-tabs">
+                        <button class="tab-btn active" data-type="all" id="tab-all-types">الكل</button>
+                        <button class="tab-btn" data-type="sale" id="tab-sale">للبيع</button>
+                        <button class="tab-btn" data-type="rent" id="tab-rent">للإيجار</button>
+                    </div>
+                    
+                    <div class="search-inputs">
+                        <div class="input-group">
+                            <label for="search-input">🔍 الكلمة المفتاحية</label>
+                            <input type="text" id="search-input" placeholder="ابحث بالمدينة، المنطقة، أو اسم العقار...">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="category-select">🏢 نوع العقار</label>
+                            <select id="category-select">
+                                <option value="all">جميع الأنواع</option>
+                                <option value="apartment">شقق وفنادق</option>
+                                <option value="villa">فلل وقصور</option>
+                                <option value="land">أراضي</option>
+                            </select>
+                        </div>
+
+                        <button id="btn-execute-search" class="btn-search">بحث متقدم</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties Gallery Section -->
+        <section class="properties-section">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">العقارات المتاحة</h2>
+                    <p class="section-subtitle">أحدث العروض الحصرية الموثقة</p>
+                </div>
+                <div class="results-count" id="results-count-wrapper">
+                    <span>تم العثور على: </span> <strong id="results-count">0</strong> عقار
+                </div>
+            </div>
+
+            <!-- Loader -->
+            <div id="loader" class="loader-container">
+                <div class="spinner"></div>
+                <p>جاري تحميل العقارات الفاخرة...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state hidden">
+                <div class="empty-icon">📭</div>
+                <h3>لم يتم العثور على عقارات مطابقة</h3>
+                <p>حاول تعديل خيارات البحث أو أضف عقاراً جديداً الآن.</p>
+                <button class="btn-secondary" onclick="resetFilters()">إعادة ضبط البحث</button>
+            </div>
+
+            <!-- Grid -->
+            <div id="properties-grid" class="properties-grid">
+                <!-- Dynamic Content Rendered Here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Property Details Modal -->
+    <div id="details-modal" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-backdrop" onclick="closeDetailsModal()"></div>
+        <div class="modal-content details-modal-card">
+            <button class="modal-close" onclick="closeDetailsModal()">×</button>
+            <div id="modal-details-body">
+                <!-- Rendered Dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Property Modal -->
+    <div id="add-modal" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-backdrop" onclick="closeAddModal()"></div>
+        <div class="modal-content add-modal-card">
+            <button class="modal-close" onclick="closeAddModal()">×</button>
+            <h2 class="modal-title">إضافة عقار فاخر جديد</h2>
+            <p class="modal-subtitle">يرجى ملء تفاصيل العقار بدقة ليتم عرضه للعملاء</p>
+            
+            <form id="add-property-form" class="property-form">
+                <div class="form-grid">
+                    <div class="form-group col-span-2">
+                        <label for="p-title-ar">العنوان بالعربية *</label>
+                        <input type="text" id="p-title-ar" required minlength="10" placeholder="مثال: فيلا الترا مودرن بحمام سباحة في بالم هيلز">
+                    </div>
+
+                    <div class="form-group col-span-2">
+                        <label for="p-title-en">العنوان بالإنجليزية (Title in English)</label>
+                        <input type="text" id="p-title-en" placeholder="e.g. Ultra Modern Villa with Pool in Palm Hills">
+                    </div>
+
+                    <div class="form-group col-span-2">
+                        <label for="p-desc-ar">الوصف بالعربية *</label>
+                        <textarea id="p-desc-ar" required minlength="20" rows="3" placeholder="اكتب تفاصيل ومميزات العقار، التشطيبات، والخدمات المتاحة..."></textarea>
+                    </div>
+
+                    <div class="form-group col-span-2">
+                        <label for="p-desc-en">الوصف بالإنجليزية (Description in English)</label>
+                        <textarea id="p-desc-en" rows="2" placeholder="Write comprehensive features, views, finishings..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="p-price">السعر (جنيه مصري) *</label>
+                        <input type="number" id="p-price" required min="1" placeholder="مثال: 5000000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="p-type">الغرض *</label>
+                        <select id="p-type" required>
+                            <option value="sale">للبيع</option>
+                            <option value="rent">للإيجار</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="p-category">الفئة *</label>
+                        <select id="p-category" required>
+                            <option value="apartment">شقة / بنتهاوس</option>
+                            <option value="villa">فيلا / توين هاوس</option>
+                            <option value="land">قطعة أرض</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="p-city">المدينة *</label>
+                        <input type="text" id="p-city" required placeholder="مثال: القاهرة الجديدة">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="p-district">المنطقة / الحي</label>
+                        <input type="text" id="p-district" placeholder="مثال: التجمع الخامس">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="p-area">المساحة (م²)</label>
+                        <input type="number" id="p-area" min="1" placeholder="مثال: 350">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="p-rooms">عدد الغرف</label>
+                        <input type="number" id="p-rooms" min="0" placeholder="مثال: 4">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="p-baths">عدد الحمامات</label>
+                        <input type="number" id="p-baths" min="0" placeholder="مثال: 3">
+                    </div>
+
+                    <div class="form-group col-span-2">
+                        <label for="p-image-url">رابط صورة العقار (URL)</label>
+                        <input type="url" id="p-image-url" placeholder="https://images.unsplash.com/...">
+                        <span class="input-hint">يمكنك تركها فارغة لاستخدام صورة افتراضية فاخرة.</span>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeAddModal()">إلغاء</button>
+                    <button type="submit" id="btn-submit-property" class="btn-primary">نشر العقار الفاخر</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-area">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>إمكان للعقارات</h3>
+                <p>المنصة الرائدة لتسويق أرقى وأفخم العقارات في مصر. نجمع بين أصالة الموقع وروعة التصميم المعماري.</p>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#" onclick="resetFilters(); return false;">الرئيسية</a></li>
+                    <li><a href="#" onclick="filterFeatured(); return false;">العقارات المميزة</a></li>
+                    <li><a href="#" onclick="document.getElementById('btn-open-add-modal').click(); return false;">أضف عقارك</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>تواصل معنا</h4>
+                <p>📧 contact@emkan-luxury.eg</p>
+                <p>📞 +20 100 123 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 إمكان للعقارات الفاخرة. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="/js/app.js"></script>
+</body>
+</html>
