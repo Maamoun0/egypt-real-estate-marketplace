@@ -1,66 +1,22 @@
-# ✨ إمكان للعقارات الفاخرة | EMKAN Luxury Real Estate Marketplace
+# EMKAN Luxury Real Estate Marketplace
 
-> [!IMPORTANT]
-> **المنصة الرائدة لتسويق أرقى وأفخم العقارات في مصر.** نجمع بين أصالة الموقع وروعة التصميم المعماري بتقديم تجربة مستخدم استثنائية تعتمد على الدقة العالية والأداء الفائق.
-
----
-
-## 🌟 نظرة عامة (Overview)
-تم تصميم وتطوير منصة **إمكان** لتلبية احتياجات النخبة والمستثمرين في السوق العقاري المصري الفاخر (القاهرة الجديدة، الشيخ زايد، والساحل الشمالي). يعتمد التصميم على واجهة مستخدم حديثة ومينيمالية مستوحاة من الدقة المعمارية الغربية (Stripe/Airbnb precision) مع لمسة محلية راقية تعزز الثقة والشفافية.
+The leading platform for marketing the finest and most luxurious properties in Egypt.
+We combine the authenticity of the location with the splendor of architectural design, providing an exceptional user experience based on high precision and superior performance.
 
 ---
 
-## 📸 لقطات حية من المنصة (Platform Previews)
+## Overview
 
-### الواجهة الرئيسية (Desktop View)
-![الصفحة الرئيسية](./public/images/screenshots/home_desktop.png)
-
-### التصفح المتقدم وعرض التفاصيل (Advanced Search & Details)
-![تفاصيل العقار](./public/images/screenshots/details_modal.png)
+The EMKAN platform is designed and developed to meet the needs of the elite and investors in the luxury Egyptian real estate market (New Cairo, Sheikh Zayed, and the North Coast). The design is based on a modern and minimalist user interface inspired by Western architectural precision (Stripe/Airbnb precision) with a sophisticated local touch that enhances trust and transparency.
 
 ---
 
-## 🚀 الميزات الرئيسية (Core Features)
+## Technical Stack
 
-- **🌍 دعم ثنائي اللغة بالكامل (Bilingual Experience):** تبديل فوري وسلس بين اللغة العربية والإنجليزية مع تعديل تلقائي لاتجاه العرض (RTL / LTR) وضبط الخطوط والمسافات لتناسب كل لغة.
-- **🎨 مظهر متكيف (Light & Dark Modes):** لوحة ألوان فاخرة تعتمد على الأزرق الداكن الملكي (`#0F172A`) والذهبي المميز (`#B59410`) لراحة العين وإبراز فخامة الصور المعمارية.
-- **🔍 محرك بحث متقدم تفاعلي:** تصفية فورية للعقارات حسب الفئة (شقق، فلل، أراضي)، الغرض (بيع/إيجار)، والكلمات المفتاحية دون الحاجة لإعادة تحميل الصفحة.
-- **📱 متجاوب بالكامل (Fully Responsive):** تجربة تصفح مثالية وتخطيط شبكي مرن يتكيف مع أجهزة سطح المكتب، الأجهزة اللوحية، والهواتف الذكية.
-- **💬 تواصل مباشر وسريع:** أزرار مدمجة للاتصال الفوري أو بدء محادثة عبر **WhatsApp** مع وكلاء العقارات.
-- **➕ نشر العقارات بسهولة:** نموذج تفاعلي متكامل يتيح للملاك إضافة عقاراتهم الفاخرة مع التحقق الفوري من صحة البيانات.
-
----
-
-## 🛠️ التقنيات المستخدمة (Tech Stack)
-
-- **الواجهة الأمامية (Frontend):** HTML5, Vanilla CSS (Custom Tokens System), Vanilla JavaScript (ES6+).
-- **الخطوط والطباعة (Typography):** **IBM Plex Sans Arabic** للعناوين، **Manrope** للفقرات، و **Inter** للأوسمة.
-- **الخلفية وقواعد البيانات (Backend):** Node.js, Express.js, TypeScript.
-
----
-
-## 💻 تشغيل المشروع محلياً (Running Locally)
-
-1. **تثبيت الحزم المعتمدة:**
-   ```bash
-   npm install
-   ```
-
-2. **تشغيل خادم التطوير (Development Server):**
-   ```bash
-   npm run dev
-   ```
-
-3. **الوصول للموقع:**
-   افتح المتصفح وانتقل إلى الرابط:
-   👉 **http://localhost:3000**
-
----
-
-## 👨‍💻 التطوير والإنشاء (Created By)
-تم تصميم وتطوير هذه المنصة بالكامل بواسطة **Ahmed Maamoun** لتقديم معيار جديد ومبتكر في تسويق العقارات الفاخرة.
-
----
-
-## 📄 الترخيص والحقوق (License)
-© 2026 إمكان للعقارات الفاخرة. جميع الحقوق محفوظة.
+- Frontend: Next.js (App Router), Tailwind CSS.
+- - Backend: Node.js.
+  - - Database: PostgreSQL.
+   
+    - ---
+    Created by Ahmed Maamoun
+    
