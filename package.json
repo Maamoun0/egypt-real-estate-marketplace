@@ -1,7 +1,8 @@
 {
   "name": "egypt-real-estate-marketplace",
   "version": "1.0.0",
-  "description": "A high-performance real estate marketplace for Egypt",
+  "description": "A high-performance luxury real estate marketplace for the Egyptian market.",
+  "author": "Ahmed Maamoun",
   "main": "src/controllers/PropertyController.ts",
   "scripts": {
     "start": "ts-node src/index.ts",
